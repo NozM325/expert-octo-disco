@@ -27,13 +27,16 @@ public class UnitTest1
 
         public BankAccountControllerTests()
         {
+            // Setup mock dependencies
             _mockRepository = new Mock<IBankAccountRepository>();
             _mockSnsClient = new Mock<IAmazonSimpleNotificationService>();
             _mockLogger = new Mock<ILogger<BankAccountController>>();
             _mockConfiguration = new Mock<IConfiguration>();
-
+             
+             // Mock configuration for SNS topic
             _mockConfiguration.Setup(c => c["AWS:SNSTopicArn"]).Returns("arn:aws:sns:us-east-1:123456789012:MyTopic");
 
+            // Inject mocks into the controller
             _controller = new BankAccountController(_mockRepository.Object, _mockConfiguration.Object, _mockSnsClient.Object, _mockLogger.Object);
         }
 
@@ -50,6 +53,8 @@ public class UnitTest1
         {
             var accountId = 123456;
             var amount = 100;
+            
+            // Mock repository to return null (account not found)
             _mockRepository.Setup(r => r.GetAccountAsync(accountId.ToString())).ReturnsAsync((Document)null);
 
             var result = await _controller.Withdraw(accountId, amount);
@@ -66,6 +71,7 @@ public class UnitTest1
             var document = new Document();
             document["Balance"] = 100;
 
+            // Mock a low balance
             _mockRepository.Setup(r => r.GetAccountAsync(accountId.ToString())).ReturnsAsync(document);
 
             var result = await _controller.Withdraw(accountId, amount);
@@ -82,7 +88,9 @@ public class UnitTest1
             var document = new Document();
             document["Balance"] = 200;
 
+            // Mock a valid account with enough balance
             _mockRepository.Setup(r => r.GetAccountAsync(accountId.ToString())).ReturnsAsync(document);
+            // Mock successful SNS publish
             _mockSnsClient.Setup(s => s.PublishAsync(It.IsAny<PublishRequest>(), default)).ReturnsAsync(new PublishResponse { MessageId = "12345" });
 
             var result = await _controller.Withdraw(accountId, amount);
@@ -99,7 +107,9 @@ public class UnitTest1
             var document = new Document();
             document["Balance"] = 200;
 
+            // Mock account with enough balance
             _mockRepository.Setup(r => r.GetAccountAsync(accountId.ToString())).ReturnsAsync(document);
+            // Simulate exception during SNS publish
             _mockSnsClient.Setup(s => s.PublishAsync(It.IsAny<PublishRequest>(), default)).ThrowsAsync(new Exception("SNS publish failed"));
 
             var result = await _controller.Withdraw(accountId, amount);

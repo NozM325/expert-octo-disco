@@ -19,6 +19,7 @@ namespace bankassessment.Models
         Status = status;
     }
 
-    public string ToJson() => JsonSerializer.Serialize(this);
+    public string ToJson() => this.ToJson(); // object to JSON
+
     }
 }

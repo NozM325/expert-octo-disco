@@ -61,3 +61,13 @@
 /Users/nmasango/Desktop/bankassessment/obj/Debug/net9.0/bankassessment.pdb
 /Users/nmasango/Desktop/bankassessment/obj/Debug/net9.0/bankassessment.genruntimeconfig.cache
 /Users/nmasango/Desktop/bankassessment/obj/Debug/net9.0/ref/bankassessment.dll
+/Users/nmasango/Desktop/bankassessment/obj/Debug/net9.0/bankassessment.sourcelink.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/appsettings.Development.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/appsettings.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/bankassessment.deps.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/bankassessment.runtimeconfig.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/bankassessment.staticwebassets.endpoints.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests.deps.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests.runtimeconfig.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/obj/project.assets.json
+/Users/nmasango/Desktop/bankassessment/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/bin/Debug/net9.0/Tests/obj/Tests.csproj.nuget.dgspec.json

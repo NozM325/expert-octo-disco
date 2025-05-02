@@ -6,21 +6,27 @@ using bankassessment.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Register your repository with the DI container
+// Register the BankAccountRepository as a scoped dependency
 builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
 
-// Add controllers
+// Add controller support
 builder.Services.AddControllers();
 
-// Add other necessary services (e.g., AWS services)
+// Register AWS SNS client as a singleton
 builder.Services.AddSingleton<IAmazonSimpleNotificationService>(_ =>
     new AmazonSimpleNotificationServiceClient(RegionEndpoint.USEast1));
 
+// Register AWS DynamoDB client as a singleton
 builder.Services.AddSingleton<IAmazonDynamoDB>(_ =>
     new AmazonDynamoDBClient(RegionEndpoint.USEast1));
 
+// Build the application
 var app = builder.Build();
+
+// Enable routing for HTTP endpoints
 app.UseRouting();
+
+// Map controller endpoints
 app.MapControllers();
 app.Run();
 
