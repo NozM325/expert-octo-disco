@@ -1,9 +1,9 @@
-# 💸 expert-octo-disco
+# expert-octo-disco
 
 `expert-octo-disco` is a local c#-based banking simulation project that integrates with AWS services like **DynamoDB** and **SNS**. It allows users to perform bank account withdrawals and then publishes the transaction result to an SNS topic.
 ---
 
-## 🚀 API Endpoints
+## API Endpoints
 
 ### `POST /bank/withdraw`
 
@@ -20,7 +20,7 @@ Withdraws a specified amount from an account if sufficient funds exist.
 
 ---
 
-## 🧩 Java Code
+## Java Code
 
 ```java
 import org.springframework.beans.factory.annotation.Autowired;
