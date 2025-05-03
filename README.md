@@ -10,8 +10,8 @@
 Withdraws a specified amount from an account if sufficient funds exist.
 
 **Request Parameters:**
-- `accountId` (Long): ID of the account
-- `amount` (BigDecimal): Amount to withdraw
+- `accountId`: ID of the account
+- `amount`: Amount to withdraw
 
 **Responses:**
 - `200 OK`: Withdrawal successful
